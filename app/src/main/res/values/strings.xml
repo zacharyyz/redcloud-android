@@ -1,0 +1,8 @@
+<resources>
+    <string name="sign_in">Sign In</string>
+    <string name="log_in">Login</string>
+    <string name="add_new">New Memo</string>
+    <string name="memo_name">Dummy Name</string>
+    <string name="app_name">RedCloud</string>
+    <string name="brand_name">RedCloud</string>
+</resources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:gravity="center"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="325dp"
+        android:layout_height="110dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="199dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--<EditText-->
+        <!--android:id="@+id/userName"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textEmailAddress"-->
+        <!--android:backgroundTint="@android:color/white" />-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/password"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textPassword"-->
+        <!--android:backgroundTint="@android:color/white" />-->
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:inputType="textEmailAddress"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@android:color/white"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@android:color/white"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loginBtn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="117dp"
+        android:text="@string/sign_in"
+        android:textColor="?android:attr/colorLongPressedHighlight" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/brandName"
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="false"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/brand_name"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#fff"
+        android:textSize="30sp" />
+
+</RelativeLayout>
