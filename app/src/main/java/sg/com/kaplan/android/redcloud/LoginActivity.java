@@ -1,5 +1,6 @@
 package sg.com.kaplan.android.redcloud;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,5 +19,13 @@ public class LoginActivity extends AppCompatActivity {
         user = findViewById(R.id.userName);
         pw = findViewById(R.id.password);
         Button loginBtn = findViewById(R.id.loginBtn);
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(login);
+            }
+        });
     }
 }

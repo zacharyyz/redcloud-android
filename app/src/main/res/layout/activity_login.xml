@@ -17,23 +17,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <!--<EditText-->
-        <!--android:id="@+id/userName"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="20dp"-->
-        <!--android:ems="10"-->
-        <!--android:inputType="textEmailAddress"-->
-        <!--android:backgroundTint="@android:color/white" />-->
-
-        <!--<EditText-->
-        <!--android:id="@+id/password"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:ems="10"-->
-        <!--android:inputType="textPassword"-->
-        <!--android:backgroundTint="@android:color/white" />-->
-
         <android.support.design.widget.TextInputLayout
             android:theme="@style/EditTextHint"
             android:layout_width="match_parent"

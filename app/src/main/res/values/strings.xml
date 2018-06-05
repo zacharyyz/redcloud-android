@@ -5,4 +5,9 @@
     <string name="memo_name">Dummy Name</string>
     <string name="app_name">RedCloud</string>
     <string name="brand_name">RedCloud</string>
+    <string name="drawer_item1">Memos</string>
+    <string name="drawer_item2">Favourites</string>
+    <string name="drawer_item3">Log out</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
 </resources>
