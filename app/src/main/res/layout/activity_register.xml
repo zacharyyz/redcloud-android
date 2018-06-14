@@ -6,25 +6,31 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:gravity="center"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <LinearLayout
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:layout_width="325dp"
-        android:layout_height="122dp"
-        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/reg_brand"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="143dp"
         android:gravity="center"
         android:orientation="vertical">
+
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
             android:theme="@style/EditTextHint">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/login_email"
+                android:id="@+id/reg_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_placeholder_email"
@@ -36,12 +42,13 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
             android:theme="@style/EditTextHint">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/login_password"
+                android:id="@+id/reg_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_placeholder_pass"
@@ -51,25 +58,43 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:theme="@style/EditTextHint">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/reg_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_placeholder_pass_confirm"
+                android:inputType="textPassword"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
     </LinearLayout>
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/reg_btn"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="327dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="162dp"
+        android:layout_marginBottom="84dp"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
-        android:text="@string/login_btn_text"
+        android:text="@string/reg_btn_text"
         android:textAllCaps="false"
         android:textColor="?android:attr/colorLongPressedHighlight"
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/login_reg_btn"
+        android:id="@+id/reg_login_btn"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="327dp"
         android:layout_height="wrap_content"
@@ -78,13 +103,13 @@
         android:layout_marginBottom="11dp"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
-        android:text="@string/login_reg_text"
+        android:text="@string/reg_login_text"
         android:textAllCaps="false"
         android:textColor="@android:color/background_light"
         android:textSize="16sp" />
 
     <ImageView
-        android:id="@+id/login_logo"
+        android:id="@+id/reg_logo"
         android:layout_width="wrap_content"
         android:layout_height="130dp"
         android:layout_alignParentTop="true"
@@ -93,11 +118,27 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/login_brand"
+        android:id="@+id/reg_text"
+        android:layout_width="293dp"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/reg_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="false"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/reg_brand_text"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/reg_brand"
         android:layout_width="202dp"
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="false"
-        android:layout_below="@+id/login_logo"
+        android:layout_below="@+id/reg_text"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="false"
         android:layout_centerVertical="false"
@@ -109,7 +150,7 @@
         android:textSize="30sp" />
 
     <ProgressBar
-        android:id="@+id/login_progress"
+        android:id="@+id/reg_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
