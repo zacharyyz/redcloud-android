@@ -4,10 +4,10 @@ Travel Blog App for Academic Assignment
 
 ## Screenshots
 
-<img src="https://github.com/avengyy/Native-Android-RedCloud/blob/master/ExampleScreens/screen1.jpeg" height="96px" width="auto">
-<img src="https://github.com/avengyy/Native-Android-RedCloud/blob/master/ExampleScreens/screen2.jpeg" height="96px" width="auto">
-<img src="https://github.com/avengyy/Native-Android-RedCloud/blob/master/ExampleScreens/screen3.jpeg" height="96px" width="auto">
-<img src="https://github.com/avengyy/Native-Android-RedCloud/blob/master/ExampleScreens/screen4.jpeg" height="96px" width="auto">
+<img src="https://github.com/avengyy/Native-Android-RedCloud/blob/master/ExampleScreens/screen1.jpeg" height="168px" width="auto">
+<img src="https://github.com/avengyy/Native-Android-RedCloud/blob/master/ExampleScreens/screen2.jpeg" height="168px" width="auto">
+<img src="https://github.com/avengyy/Native-Android-RedCloud/blob/master/ExampleScreens/screen3.jpeg" height="168px" width="auto">
+<img src="https://github.com/avengyy/Native-Android-RedCloud/blob/master/ExampleScreens/screen4.jpeg" height="168px" width="auto">
 
 ## IMPORTANT NOTE:
 
