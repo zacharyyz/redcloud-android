@@ -84,7 +84,7 @@ public class HomeFragment extends Fragment {
             });
 
             // Sort results by descending (latest posts first)
-            Query firstQuery = db.collection("Posts").orderBy("timestamp", Query.Direction.DESCENDING).limit(10);
+            Query firstQuery = db.collection("Posts").limit(10);
 
             // Set real time database listener
             firstQuery.addSnapshotListener(Objects.requireNonNull(getActivity()), new EventListener<QuerySnapshot>() {
@@ -149,7 +149,6 @@ public class HomeFragment extends Fragment {
         if (mAuth.getCurrentUser() != null) {
             // Sort results by descending (latest posts first)
             Query nextQuery = db.collection("Posts")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
                     .startAfter(lastVisible)
                     .limit(10);
 
