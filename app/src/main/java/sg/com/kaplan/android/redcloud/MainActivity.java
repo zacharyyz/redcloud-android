@@ -9,9 +9,11 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,7 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private Toolbar mainToolbar;
     private FirebaseAuth mAuth;
@@ -34,12 +36,11 @@ public class MainActivity extends AppCompatActivity {
     private String currentUserId;
 
     private FloatingActionButton addPostBtn;
-    //    private DrawerLayout mainDrawerNav;
-//    private ActionBarDrawerToggle mainDrawerToggle;
-    private BottomNavigationView mainBottomNav;
+    private DrawerLayout mainDrawerNav;
+    private ActionBarDrawerToggle mainDrawerToggle;
+    private NavigationView navigationView;
 
     private HomeFragment homeFragment;
-    private NotificationFragment notificationFragment;
     private AccountFragment accountFragment;
 
     @Override
@@ -56,41 +57,36 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(mainToolbar);
         getSupportActionBar().setTitle("RedCloud");
 
-        mainBottomNav = findViewById(R.id.mainBottomNav);
 
-        // Init Fragments
-        homeFragment = new HomeFragment();
-        notificationFragment = new NotificationFragment();
-        accountFragment = new AccountFragment();
 
-        mainBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if (mAuth.getCurrentUser() != null) {
 
-                switch (item.getItemId()) {
-                    case R.id.bottom_action_home:
-                        replaceFragment(homeFragment);
-                        return true;
-                    case R.id.bottom_action_notification:
-                        replaceFragment(notificationFragment);
-                        return true;
-                    case R.id.bottom_action_account:
-                        replaceFragment(accountFragment);
-                        return true;
-                    default:
-                        return false;
+            // Init Fragments
+            homeFragment = new HomeFragment();
+            accountFragment = new AccountFragment();
+
+
+            mainDrawerNav = findViewById(R.id.main_drawer_layout);
+            mainDrawerToggle = new ActionBarDrawerToggle(this, mainDrawerNav, mainToolbar, R.string.drawer_open, R.string.drawer_close);
+            mainDrawerNav.addDrawerListener(mainDrawerToggle);
+            mainDrawerToggle.syncState();
+
+            navigationView = findViewById(R.id.mainNavView);
+            navigationView.setNavigationItemSelectedListener(this);
+
+            navigationView.setCheckedItem(R.id.nav_home);
+
+            initializeFragment();
+
+            addPostBtn = findViewById(R.id.add_post_btn);
+            addPostBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent addPostIntent = new Intent(MainActivity.this, NewPostActivity.class);
+                    startActivity(addPostIntent);
                 }
-            }
-        });
-
-        addPostBtn = findViewById(R.id.add_post_btn);
-        addPostBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent addPostIntent = new Intent(MainActivity.this, NewPostActivity.class);
-                startActivity(addPostIntent);
-            }
-        });
+            });
+        }
     }
 
     @Override
@@ -124,9 +120,52 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        if (mainDrawerNav.isDrawerOpen(GravityCompat.START)) {
+            mainDrawerNav.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.main_container);
+
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                addPostBtn.setEnabled(true);
+                addPostBtn.setVisibility(View.VISIBLE);
+                replaceFragment(homeFragment, currentFragment);
+                break;
+            case R.id.nav_account:
+                addPostBtn.setEnabled(false);
+                addPostBtn.setVisibility(View.INVISIBLE);
+                replaceFragment(accountFragment, currentFragment);
+                break;
+        }
+        mainDrawerNav.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search_btn);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
         return true;
     }
@@ -160,13 +199,34 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    private void replaceFragment(Fragment fragment) {
+    private void initializeFragment(){
 
-        // Start Transaction
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_container, fragment);
+
+        fragmentTransaction.add(R.id.main_container, homeFragment);
+        fragmentTransaction.add(R.id.main_container, accountFragment);
+
+        fragmentTransaction.hide(accountFragment);
+
         fragmentTransaction.commit();
 
     }
 
+    private void replaceFragment(Fragment fragment, Fragment currentFragment){
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        if(fragment == homeFragment){
+            fragmentTransaction.hide(accountFragment);
+        }
+
+        if(fragment == accountFragment){
+            fragmentTransaction.hide(homeFragment);
+        }
+
+        fragmentTransaction.show(fragment);
+
+        //fragmentTransaction.replace(R.id.main_container, fragment);
+        fragmentTransaction.commit();
+
+    }
 }

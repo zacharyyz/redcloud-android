@@ -6,9 +6,6 @@
         <item android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black"
             android:title="@string/nav_home_text" />
-        <item android:id="@+id/nav_notification"
-            android:icon="@drawable/ic_notifications_black"
-            android:title="@string/nav_notification_text" />
         <item android:id="@+id/nav_account"
             android:icon="@drawable/ic_person_black"
             android:title="@string/nav_account_text" />

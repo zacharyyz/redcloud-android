@@ -1,21 +1,24 @@
 package sg.com.kaplan.android.redcloud;
 
-import java.sql.Timestamp;
+import com.google.firebase.firestore.ServerTimestamp;
 
-public class Post {
+import java.util.Date;
 
-    public String user_id, image_url, title, desc, thumb_url;
+public class Post extends PostId {
 
-    public Post() {
-        // Mandatory Empty Constructor
-    }
+    private String user_id, image_url, title, desc, thumb_url;
+    @ServerTimestamp
+    private Date timestamp;
 
-    public Post(String user_id, String image_url, String title, String desc, String thumb_url, Timestamp timestamp) {
+    public Post() {}
+
+    public Post(String user_id, String image_url, String title, String desc, String thumb_url, Date timestamp) {
         this.user_id = user_id;
         this.image_url = image_url;
         this.title = title;
         this.desc = desc;
         this.thumb_url = thumb_url;
+        this.timestamp = timestamp;
     }
 
     public String getUser_id() {
@@ -56,5 +59,13 @@ public class Post {
 
     public void setThumb_url(String thumb_url) {
         this.thumb_url = thumb_url;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 }

@@ -6,7 +6,8 @@
         android:id="@+id/action_search_btn"
         android:icon="@drawable/ic_search_white"
         android:title="@string/action_search_text"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
     <item
         android:id="@+id/action_settings_btn"
         android:title="@string/action_setting_text" />

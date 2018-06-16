@@ -6,14 +6,12 @@
     <string name="reg_brand_text">Create a new Account</string>
     <string name="app_promo">Your Travel Blog</string>
     <string name="app_name">RedCloud</string>
-    <string name="drawer_item1">Memos</string>
-    <string name="drawer_item2">Favourites</string>
-    <string name="drawer_item3">Log out</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string name="action_search_text">Search</string>
     <string name="action_setting_text">Account Settings</string>
     <string name="action_logout_text">Log Out</string>
+    <string name="action_share_text">Share</string>
     <string name="input_placeholder_email">Email</string>
     <string name="input_placeholder_pass">Password</string>
     <string name="input_placeholder_pass_confirm">Confirm Password</string>
@@ -28,9 +26,10 @@
     <string name="nav_home_text">Home</string>
     <string name="nav_notification_text">Notifications</string>
     <string name="nav_account_text">Account</string>
-    <string name="open">Open</string>
-    <string name="close">Close</string>
+    <string name="search_hint">Search Posts</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="comment_field_hint">Your Comment here...</string>
+    <string name="comment_label_text">Comments:</string>
 </resources>
