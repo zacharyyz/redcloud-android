@@ -89,6 +89,9 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
         if (post_user_id.equals(currentUserId)) {
             holder.postDeleteBtn.setEnabled(true);
             holder.postDeleteBtn.setVisibility(View.VISIBLE);
+        } else {
+            holder.postDeleteBtn.setEnabled(false);
+            holder.postDeleteBtn.setVisibility(View.INVISIBLE);
         }
 
         final String userName = userList.get(position).getName();
